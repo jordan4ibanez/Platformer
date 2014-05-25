@@ -23,6 +23,7 @@ function load_level()
       objects[w]["block"..i].shape = love.physics.newRectangleShape(chunk["block"..i].size[1], chunk["block"..i].size[2])
       objects[w]["block"..i].fixture = love.physics.newFixture(objects[w]["block"..i].body, objects[w]["block"..i].shape)
       objects[w]["block"..i].fixture:setUserData("block"..i)
+      objects[w]["block"..i].color = chunk["block"..i].color
       if chunk["block"..i].friction ~= nil then
     	  objects[w]["block"..i].fixture:setFriction(chunk["block"..i].friction[1])
   	  else

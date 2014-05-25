@@ -43,8 +43,8 @@ function love.draw()
   
   for w = 1,chunkamount do
     for i = 1,(chunksize*chunksize) do
-      --love.graphics.setColor(chunk["block"..i].color)
-      love.graphics.setColor(math.random(255),math.random(255),math.random(255))
+      love.graphics.setColor(objects[w]["block"..i].color)
+      --love.graphics.setColor(math.random(255),math.random(255),math.random(255))
       love.graphics.polygon("fill", objects[w]["block"..i].body:getWorldPoints(objects[w]["block"..i].shape:getPoints()))
       
     end
