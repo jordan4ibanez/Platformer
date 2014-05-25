@@ -45,11 +45,17 @@ function love.draw()
   
   for w = 1,chunkamount do
     for i = 1,(chunksize*chunksize) do
+    
       love.graphics.setColor(objects[w]["block"..i].color)
       local quards1,quards2 = objects[w]["block"..i].body:getWorldPoints(objects[w]["block"..i].shape:getPoints())
       love.graphics.draw(dirt, quards1, quards2)
       
-      
+      --debug
+      love.graphics.setColor(objects[w]["block"..i].color[2],objects[w]["block"..i].color[3],objects[w]["block"..i].color[1])
+      love.graphics.print("CHUNK:", quards1, quards2)
+      love.graphics.print(w, quards1, (quards2+19))
+      love.graphics.print("BLOCK:", quards1, (quards2+38))
+      love.graphics.print(i, quards1, (quards2+56))
       --love.graphics.polygon("fill", objects[w]["block"..i].body:getWorldPoints(objects[w]["block"..i].shape:getPoints()))
       
     end

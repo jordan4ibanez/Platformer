@@ -9,7 +9,7 @@ math.randomseed( os.time() )
 function generate_chunk()
   for c = 1,chunkamount do
   
-    local chunkposx,chunkposy = c*(chunksize*blocksize),500-(c*10)
+    local chunkposx,chunkposy = c*(chunksize*blocksize),200
     local file = io.open("worlddata/chunk"..c, "w")
     local i = 0
     file:write("chunk = { \n")
