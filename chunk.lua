@@ -21,6 +21,7 @@ function generate_chunk()
         "    size = {"..blocksize..","..blocksize.."},\n"..
         "    color = {"..math.random(255)..","..math.random(255)..","..math.random(255).."},\n"..
         "    alive = {true},\n"..
+        --"    restitution = {"..math.random().."},\n"..
         "  },\n"
         )
       end

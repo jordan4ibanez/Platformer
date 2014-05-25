@@ -21,6 +21,8 @@ function love.load()
   love.physics.setMeter(64)
   world = love.physics.newWorld(0, 9.81*64, true)
   
+  dirt = love.graphics.newImage("image/dirt.png")
+  
   
   generate_chunk()
   load_level()
@@ -44,8 +46,11 @@ function love.draw()
   for w = 1,chunkamount do
     for i = 1,(chunksize*chunksize) do
       love.graphics.setColor(objects[w]["block"..i].color)
-      --love.graphics.setColor(math.random(255),math.random(255),math.random(255))
-      love.graphics.polygon("fill", objects[w]["block"..i].body:getWorldPoints(objects[w]["block"..i].shape:getPoints()))
+      local quards1,quards2 = objects[w]["block"..i].body:getWorldPoints(objects[w]["block"..i].shape:getPoints())
+      love.graphics.draw(dirt, quards1, quards2)
+      
+      
+      --love.graphics.polygon("fill", objects[w]["block"..i].body:getWorldPoints(objects[w]["block"..i].shape:getPoints()))
       
     end
   end
