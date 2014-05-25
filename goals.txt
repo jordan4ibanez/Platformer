@@ -1,0 +1,10 @@
+0.01 Goals
+----------
+-Create a working game
+-Create player that can move in environment
+-Make a usable table to call platforms from
+0.02 Goals
+----------
+-Make levels get loaded from a file
+-make jumping work better
+-make the camera transition in front of the player's momentum fluidly instead of instantly focusing on them
