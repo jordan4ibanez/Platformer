@@ -8,3 +8,4 @@
 +-Make levels get loaded from a file
 -make jumping work better
 -make the camera transition in front of the player's momentum fluidly instead of instantly focusing on them
+-make chunks generate, load, and unload based on position

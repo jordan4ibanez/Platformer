@@ -1,3 +1,4 @@
+dofile("helpers.lua")
 dofile("chunk.lua")
 dofile("level_handler.lua")
 dofile("player.lua")
@@ -24,7 +25,7 @@ function love.load()
   dirt = love.graphics.newImage("image/dirt.png")
   
   
-  generate_chunk()
+  
   load_level()
   
   load_player()
@@ -36,6 +37,9 @@ end
 function love.update(dt)
   world:update(dt)
   
+  generate_chunk(objects.player.body:getPosition())
+  
+  
   move()
 
   
@@ -43,7 +47,7 @@ end
 function love.draw()
   camera_follow()
   
-  for w = 1,chunkamount do
+  for w = testlow,testhigh do
     for i = 1,(chunksize*chunksize) do
     
       love.graphics.setColor(objects[w]["block"..i].color)
