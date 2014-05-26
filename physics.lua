@@ -39,12 +39,12 @@ end
 function move()
   if love.keyboard.isDown("right") then
     --camerax = camerax+10
-    objects.player.body:applyForce(100, 0)
+    player.player.body:applyForce(100, 0)
   elseif love.keyboard.isDown("left") then
     --camerax = camerax-10
-    objects.player.body:applyForce(-100, 0)
+    player.player.body:applyForce(-100, 0)
   end
-  local x,y = objects.player.body:getPosition()
+  local x,y = player.player.body:getPosition()
   if y > 800+50 then
     dead = true
   end

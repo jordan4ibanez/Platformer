@@ -1,54 +1,35 @@
 print("1")
 
-objects = {}
 
-function load_level()
 
+function load_level(low, high)
+  objects = {}
+  memoryblock = 0
+  for w = low,high do
   
-  --start from 0 and go up
-  testhigh = 0
-  while true do
-    if file_exists("worlddata/chunk"..testhigh) == true then
-      testhigh = testhigh + 1
-    else
-      testhigh = testhigh - 1
-      break
-    end
+    --do this because you can't do block[-1]
+    memoryblock = memoryblock + 1
+
+    objects[memoryblock] = {}
     
-  end
-  --start from -1 and go down
-  testlow = 0
-  while true do
-    if file_exists("worlddata/chunk"..testlow) == true then
-      testlow = testlow - 1
-    else
-      testlow = testlow + 1
-      break
-    end
-  end
-  
-  
-  
-  for w = testlow,testhigh do
-    objects[w] = {}
     for i = 1,(chunksize*chunksize) do
       dofile("worlddata/chunk"..w)
       --print("chunk "..w.." block "..i)
-      
-      objects[w]["block"..i] = {}
-      objects[w]["block"..i].body = love.physics.newBody(world, chunk["block"..i].position[1], chunk["block"..i].position[2])
-      objects[w]["block"..i].shape = love.physics.newRectangleShape(chunk["block"..i].size[1], chunk["block"..i].size[2])
-      objects[w]["block"..i].fixture = love.physics.newFixture(objects[w]["block"..i].body, objects[w]["block"..i].shape)
-      objects[w]["block"..i].fixture:setUserData("block"..i)
-      objects[w]["block"..i].color = chunk["block"..i].color
+      print(memoryblock)
+      objects[memoryblock]["block"..i] = {}
+      objects[memoryblock]["block"..i].body = love.physics.newBody(world, chunk["block"..i].position[1], chunk["block"..i].position[2])
+      objects[memoryblock]["block"..i].shape = love.physics.newRectangleShape(chunk["block"..i].size[1], chunk["block"..i].size[2])
+      objects[memoryblock]["block"..i].fixture = love.physics.newFixture(objects[memoryblock]["block"..i].body, objects[memoryblock]["block"..i].shape)
+      objects[memoryblock]["block"..i].fixture:setUserData("block"..i)
+      objects[memoryblock]["block"..i].color = chunk["block"..i].color
       if chunk["block"..i].friction ~= nil then
-    	  objects[w]["block"..i].fixture:setFriction(chunk["block"..i].friction[1])
+    	  objects[memoryblock]["block"..i].fixture:setFriction(chunk["block"..i].friction[1])
   	  else
-	    objects[w]["block"..i].fixture:setFriction(5)
+	    objects[memoryblock]["block"..i].fixture:setFriction(5)
       end
       --objects.ball.fixture:setRestitution(0.9)
       if chunk["block"..i].restitution ~= nil then
-        objects[w]["block"..i].fixture:setRestitution(chunk["block"..i].restitution[1])
+        objects[memoryblock]["block"..i].fixture:setRestitution(chunk["block"..i].restitution[1])
       end
     end
   end

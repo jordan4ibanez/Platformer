@@ -8,4 +8,15 @@
 +-Make levels get loaded from a file
 -make jumping work better
 -make the camera transition in front of the player's momentum fluidly instead of instantly focusing on them
--make chunks generate, load, and unload based on position
++-make chunks generate, load, and unload based on position
+0.03 Goals
+----------
+-less clunky chunk loading
+-a grid which your mouse is shown which block it's currently in in a grid like pattern
+-a better name
+-debug "switch"
+-organize code and clean up
+0.04 Goals
+----------
+-make chunks generate as actual blocks
+-air blocks
