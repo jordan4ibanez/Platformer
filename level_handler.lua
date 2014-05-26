@@ -14,8 +14,6 @@ function load_level(low, high)
     
     for i = 1,(chunksize*chunksize) do
       dofile("worlddata/chunk"..w)
-      --print("chunk "..w.." block "..i)
-      print(memoryblock)
       objects[memoryblock]["block"..i] = {}
       objects[memoryblock]["block"..i].body = love.physics.newBody(world, chunk["block"..i].position[1], chunk["block"..i].position[2])
       objects[memoryblock]["block"..i].shape = love.physics.newRectangleShape(chunk["block"..i].size[1], chunk["block"..i].size[2])
